@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 BAD API</title>
+</head>
+
+<body>
+
+ <h1> JSON </h1>
+
+<h2> Javascript Object Notation</h2>
+<ul id 
+= "users-container">
+
+
+
+</ul>
+
+<script>
+
+fetch('http://jsonplaceholder.typicode.com/users')
+.then(response => response.json())  // here in response is return and json is converting system
+
+.then(json => displayUser(json))    //here first json is mainly Data, we have defined it as json and we have put displayUser function here and data as parameter
+
+.catch(error=> console.log(error))
+
+
+function displayUser(users){
+
+const userNames = users.map(user=> user.username)
+const ul = document.getElementById("users-container")
+for(let i = 0; i<userNames.length; i++){
+    const username = userNames[i]
+    const li = document.createElement("li")
+    li.innerText = username;
+    ul.appendChild(li)
+
+}
+
+
+}
+
+ </script>
+
+
+</body>
+
+
+</html>
